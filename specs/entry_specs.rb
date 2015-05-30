@@ -23,6 +23,6 @@ RSpec.describe Entry do
       entry =  Entry.new("Bo Jackson", "123-456-890", "great@sports.com")
       expected_string =  "Name: Bo Jackson\nPhone Number: 123-456-890\nEmail: great@sports.com"
       expect(entry.to_s).to eq(expected_string)
-    end
-  end
+   end
+ end
 end
