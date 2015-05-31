@@ -46,9 +46,32 @@ class MenuController
   end
 
   def view_all_entries
+    @address_book.entries.each do |entry|
+      system "clear"
+      puts entry.to_s
+
+      entry_submenu(entry)
+    end
+
+    system "clear"
+    puts "End of entries"
   end
 
   def create_entry
+    system "clear"
+    puts "New Address Entry"
+
+    print "Name: "
+    name = gets
+    print "Phone number: "
+    phone = gets
+    print "Email: "
+    email = gets
+
+    @address_book.add_entry(name, phone, email)
+
+    system "clear"
+    puts "New entry added"
   end
 
   def search_entries
