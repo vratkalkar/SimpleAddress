@@ -59,4 +59,17 @@ RSpec.describe AddressBook do
   end
  end
 
+ context ".binary_search" do
+  it "searches AddressBook for a non-existent entry" do
+    book.import_from_csv("entries.csv")
+    entry = book.binary_search("Person")
+    expect(entry).to be_nil
+  end
+  it "searches AddressBook for name" do
+    book.import_from_csv("entries.csv")
+    entry = book.binary_search("Vivek")
+    expect entry.instance_of?(Entry)
+    check_entry(entry, "Vivek", "123-456-1234", "vratkalkar@email.com")
+  end
+ end
 end
